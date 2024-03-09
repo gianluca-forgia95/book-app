@@ -1,15 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, take, tap } from 'rxjs';
+import { BooksService } from 'src/app/services/books.service';
 
 @Component({
-  selector: 'app-book-detail',
+  selector: 'book-detail',
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
 
-  constructor() { }
+  book: any = {};
+
+
+  constructor(private booksService: BooksService, private activatedRoute: ActivatedRoute) { 
+
+  }
 
   ngOnInit(): void {
+
+    let id = this.activatedRoute.snapshot.params['id'];
+    this.booksService.getBook(id)
+    .subscribe(response => {
+      this.book = response.volumeInfo ;
+      console.log(this.book, 'book')
+
+    });
+
+
+ 
+
+ 
   }
 
 }
