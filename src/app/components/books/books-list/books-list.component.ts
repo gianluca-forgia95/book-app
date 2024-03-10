@@ -17,7 +17,7 @@ export class BooksListComponent implements OnInit {
 
   ngOnInit(): void {
     this.queryString.valueChanges.subscribe((val)=> {
-      if (val != "") {
+      if (val !== "") {
         this.booksService.getBooks(val).subscribe((response)=> {
           this.books = response.items ? response.items : [];
         });
