@@ -10,10 +10,11 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(queryString: any) {
+  getBooks(queryString: any, startIndex: number) {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("q",queryString);
-    queryParams = queryParams.append("maxResults", "10")
+    queryParams = queryParams.append("maxResults", "10");
+    queryParams = queryParams.append("startIndex", startIndex);
     const url = this.baseUrl;
     return this.http.get<any>(url, {params:queryParams});
   }

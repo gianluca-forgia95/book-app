@@ -8,13 +8,15 @@ import { BooksComponent } from './components/books/books.component';
 import { BooksListComponent } from './components/books/books-list/books-list.component';
 import { BookDetailComponent } from './components/books/book-detail/book-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PaginationCustomComponent } from './components/pagination-custom/pagination-custom.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
     BooksListComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    PaginationCustomComponent
   ],
   imports: [
     BrowserModule,

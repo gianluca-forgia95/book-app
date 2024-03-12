@@ -11,21 +11,48 @@ export class BooksListComponent implements OnInit {
 
   queryString = new FormControl('');
 
-  books: any = [];
+  paginatedData: any[] = []
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+  totalItems: any;
 
   constructor(private booksService: BooksService) { }
 
   ngOnInit(): void {
     this.queryString.valueChanges.subscribe((val)=> {
-      if (val !== "") {
-        this.booksService.getBooks(val).subscribe((response)=> {
-          this.books = response.items ? response.items : [];
-        });
+      if (val == "") {
+        this.paginatedData = []
       } else {
-        this.books = [];
+        this.fetchData(val);
       }
     });
   }
-// <p class="mt-1 truncate text-xs leading-5 text-gray-500">leslie.alexander@example.com</p>
+
+ 
+  fetchData(queryStr?: any) {
+        let val;
+        if (queryStr) {
+          val = queryStr;
+        } else {
+          val = this.queryString.value;
+        }
+        if (val != "") {
+          const start = (this.currentPage - 1) * this.itemsPerPage;
+          this.booksService.getBooks(val, start).subscribe((response)=> {
+            this.paginatedData = response.items ? response.items : [];
+            this.totalItems = response.totalItems;
+          });
+        } else {
+          this.paginatedData = []
+        }
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.fetchData();
+  }
+
+
+ 
 
 }

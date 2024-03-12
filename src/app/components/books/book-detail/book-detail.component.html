@@ -2,26 +2,24 @@
   <div class=" px-10 py-6 mx-auto">
         
         <!--author-->
-     <div class="max-w-6xl px-10 py-6 mx-auto bg-gray-50">
-        
+     <div class="max-w-6xl px-10 py-6 mx-autobg-gray-50">
+    <div class="flex items-center justify-center md:justify-start">
       <img *ngIf="book.imageLinks" class="h-12 w-12 flex-none rounded-full bg-gray-50" [src]="book.imageLinks.smallThumbnail" [alt]="book.title">
       <img *ngIf="!book.imageLinks" class="h-12 w-12 flex-none rounded-full bg-gray-50" src="../../../../assets/img/book_icon.png" alt="book">
-
-    <div class="flex items-center justify-start mt-4 mb-4">
+    </div>
+    <div class="flex items-center justify-center md:justify-start mt-4 mb-4 ">
           <div *ngFor="let category of book.categories" class="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500 mr-4">{{category}}</div>
 
-         </div>
-        <div class="mt-2">
+    </div>
+    <div class="mt-2 text-center md:text-start">
           <a 
                 class="sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-purple-500  hover:underline">{{ book.title }}</a>
 
-                <div class="flex justify-start items-center mt-2">
+                <div class="flex justify-center md:justify-start  items-center mt-2">
                   <p class="text-sm text-green-500 font-bold bg-gray-100 rounded-full py-2 px-2 hover:text-red-500">{{ book.publishedDate }}</p>
-  
-                
                 </div>
 
-                <div class="flex justify-start items-center mt-2">
+                <div class="flex justify-center md:justify-start  items-center mt-2">
                   <a [href]="book.infoLink" target="_blank" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Link
                     <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -33,7 +31,7 @@
                 <!--author avator-->
                <div class="font-light text-gray-600">
                 
-              <div  class="flex items-center mt-6 mb-6">
+              <div  class="flex justify-center md:justify-start mt-6 mb-6">
                       <h1 class="font-bold text-gray-700 ">By </h1>
                       <h1 class="font-bold text-gray-700 px-2" *ngFor="let author of book.authors">
                         {{ author }}
@@ -44,11 +42,11 @@
     
        <!--end post header-->
           <!--post content-->
- <div class="max-w-4xl px-10  mx-auto text-2xl text-gray-700 mt-4 rounded bg-gray-100">
+ <div class="max-w-4xl px-0 md:px-4  mx-auto text-l  md:text-2xl text-gray-700 mt-4 rounded bg-gray-100">
 
    <!--content body-->
      <div *ngIf="book.description">
-          <p class="mt-2 p-8">{{ book.description }}</p>
+          <p class="mt-2 p-8 ">{{ book.description }}</p>
      </div>
 </div>
 </div>

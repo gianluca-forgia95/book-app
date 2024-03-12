@@ -1,0 +1,21 @@
+<div class="flex justify-center md:justify-start items-center  py-8">
+    <button 
+    (click)="changePage(currentPage - 1)" 
+    [disabled]="currentPage === 1"
+    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>          
+    </button>
+    <span class="px-8 ">Page <span class="font-bold">{{ currentPage }}</span></span>
+    <button 
+    (click)="changePage(currentPage + 1)" 
+    [disabled]="currentPage === totalPages"
+    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+    </button>
+</div>
