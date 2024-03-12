@@ -1,7 +1,7 @@
 <div class="flex justify-center md:justify-start items-center  py-8">
     <button 
     (click)="changePage(currentPage - 1)" 
-    [disabled]="currentPage === 1"
+    *ngIf="currentPage !== 1"
     class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
     >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -11,7 +11,7 @@
     <span class="px-8 ">Page <span class="font-bold">{{ currentPage }}</span></span>
     <button 
     (click)="changePage(currentPage + 1)" 
-    [disabled]="currentPage === totalPages"
+    *ngIf="dataInput.length >= 10"
     class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
     >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

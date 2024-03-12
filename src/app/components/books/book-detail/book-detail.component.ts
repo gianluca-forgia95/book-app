@@ -22,8 +22,7 @@ export class BookDetailComponent implements OnInit {
     let id = this.activatedRoute.snapshot.params['id'];
     this.booksService.getBook(id)
     .subscribe(response => {
-      this.book = response.volumeInfo ;
-      console.log(this.book, 'book')
+      this.book = response.volumeInfo;
 
     });
 

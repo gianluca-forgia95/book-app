@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-pagination-custom',
+  selector: 'pagination-custom',
   templateUrl: './pagination-custom.component.html',
   styleUrls: ['./pagination-custom.component.css']
 })
@@ -10,6 +10,7 @@ export class PaginationCustomComponent implements OnInit {
   @Input() currentPage: any;
   @Input() itemsPerPage: any;
   @Input() totalItems: any;
+  @Input() dataInput: any;
   @Output() pageChanged: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
